@@ -56,6 +56,9 @@ public class DataTypes {
         int value='b';
         System.out.println("sum is :" + (value+5)); // 103
         System.out.println("sum is :" + (char)(value+5));
+        
+        // System.out.println("sum is :" + (char)(value+5));
+
 
     }
 }
