@@ -9,7 +9,7 @@ public class Variables{
 //3.subsequent character [0 to 9,_,$
 //4.no reserved keyword[class, static etc]
 //5.length[no limit ,  but meaningfull names needed ] varinabel name must be a meaningfull
-//6.conventions :camelcase, upperCase for constant etc
+//6.conventions :camelcase, upperCase for constant etc.
 
         //1. create and declare 
         int age ;
