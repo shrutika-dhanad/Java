@@ -7,13 +7,15 @@
 
  public class Methods {
  
-//      static void sum(){
-//         int a=20;
-//         int b=50;
-//         int c=50;
-//         System.out.println("sum: " + (a+b+c));
-//      }
+     static void sum(){
+        int a=20;
+        int b=50;
+        int c=50;
+        System.out.println("sum: " + (a+b+c));
+     }
 
+
+     
 //     static void mult(int p, int q){
 //             int res=p*q;
 //             System.out.println(res);
