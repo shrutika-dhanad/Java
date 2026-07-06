@@ -8,7 +8,7 @@ public class Variables{
 //2.starting character [a, A,_,$]
 //3.subsequent character [0 to 9,_,$
 //4.no reserved keyword[class, static etc]
-//5.length[no limit ,  but meaningfull names needed ] varinabel name must be a meaningfull
+//5.length[no limit ,  but meaningfull names needed ] variable name must be a meaningfull
 //6.conventions :camelcase, upperCase for constant etc.
 
         //1. create and declare 
@@ -37,11 +37,12 @@ public class Variables{
          int _age=96; 
 
          //Subsequent letter
-         int height5=52;
+         int height5=52; 
          int height$shruti=63;
          int theight_=56;
          int height$=52;
-
+     
+          System.out.println(height$shruti);
          //No reservd keyword - we cant use the reserved keyworkd in java as a variables;
         //   int class=40;  //it throw an error
         // int static=79;
