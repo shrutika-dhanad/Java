@@ -58,19 +58,19 @@ static void updateValue(int value){
     int num = 5;
     // System.out.println("inside main: "+ num);
     /// solution(num);
-    // System.out.println("inside main:"+ num);
+     System.out.println("inside main:"+ num);
 
     // PrintWelcomeMsg();
 
     int sum = PrintSum(10, 70);
-    // System.out.println(sum);
+     System.out.println(sum);
 
     boolean result = isEven(10);
-    //System.out.println(result);
+    System.out.println(result);
 
 
    int max= getMaximum(50,32);
-   //System.out.println(max);
+   System.out.println(max);
    
    dislay(1);
    display("KJS collge kopargaon");
