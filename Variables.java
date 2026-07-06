@@ -31,18 +31,18 @@ public class Variables{
         System.out.println(WEIGHT);
 
          //starting letter 
-         int marks =100;
-         int Marks=60;
-         int $name=85;
-         int _age=96; 
+        //  int marks =100;
+        //  int Marks=60;
+        //  int $name=85;
+        //  int _age=96; 
 
-         //Subsequent letter
-         int height5=52; 
-         int height$shruti=63;
-         int theight_=56;
-         int height$=52;
+        //  //Subsequent letter
+        //  int height5=52; 
+        //  int height$shruti=63;
+        //  int theight_=56;
+        //  int height$=52;
      
-          System.out.println(height$shruti);
+         // System.out.println(height$shruti);
          //No reservd keyword - we cant use the reserved keyworkd in java as a variables;
         //   int class=40;  //it throw an error
         // int static=79;
