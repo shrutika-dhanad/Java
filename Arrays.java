@@ -152,7 +152,7 @@ public class Arrays {
         if(maxArr[i] > maxValue){
             maxValue=maxArr[i];
         }
-        System.out.println(maxValue);
+   //     System.out.println(maxValue);
       }
 
 
@@ -178,9 +178,25 @@ public class Arrays {
            if(maximum[i] > maximumValue){
                maximumValue=maximum[i];
            }
-           System.out.println(maximumValue);
       }
 
-    }
+      System.out.println(maximumValue);
+
+
+
+
+String Cars[]={"bollero","fortuner", "breeza","creata"};
+int o= Cars.length;
+
+for(int i=0; i<=o-1 ; i++){
+ // System.out.println(Cars[i]);
+}
+
+
+
+
+
+}
+
 
 }

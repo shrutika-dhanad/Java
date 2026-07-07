@@ -23,8 +23,8 @@ public class Operator {
 
         int currentValue=95; 
         int targetValue=456;
-
-        System.out.println(currentValue == targetValue);
+         System.out.println("reltional ");
+        System.out.println( currentValue == targetValue);
         System.out.println(currentValue != targetValue);
         System.out.println(currentValue >= targetValue);
         System.out.println(currentValue <= targetValue);
@@ -59,7 +59,7 @@ public class Operator {
 
         int activeNum=500;
 
-        int preInc=++activeNum;  //500+1=501  preInc=501 
+        int preInc = ++activeNum;  //500+1=501  preInc=501 
 
         int postInc=activeNum++;  //501++ =postInc=501 
                                   //activeNum++ =501++ =501+1=502                      
