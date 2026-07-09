@@ -190,6 +190,149 @@ for(int i =0; i< minArr.length; i++){
 System.out.println( "minvalue is :" +minValue);
 
 
+///row wise sum
 
+//    int rowSum[][]={
+//     {1,2,3},
+//     {7,5,6},
+//    };
+
+//    for(int i=0; i<rowSum.length; i++){
+//     int result=0;
+//     for(int j=0; j<rowSum[i].length; j++){
+//         result+=rowSum[i][j];
+//     }
+//    System.out.println("row " + i + "sum= "+ result);
+
+//    }
+
+
+//   //column wise sum
+    
+//      int columSum[][]={{4,5,6},{7,8,9},{4,9,3}};
+
+//      for(int j=0; j<columSum[0].length; j++){
+//         int colresult=0;
+//         for(int i =0 ; i<columSum.length; i++){
+//             colresult+=columSum[i][j];
+
+//         }
+//         System.out.println("column "+ j + "sum " + colresult);
+//      }
+
+
+//practice
+  
+      int rowSum[][]={
+        {1,5,26},
+        {41,85,3},
+        {1,2,3,4,5,6}
+    };
+
+    for(int i=0; i<rowSum.length; i++){
+        int rowRes=0;
+        for(int j=0; j<rowSum[i].length; j++){
+          rowRes+=rowSum[i][j];         
+   
+        }
+       // System.out.println("row : "+ i + " sum : " + rowRes);
+        
+
+    }
+
+    
+
+    int colSum[][]={
+        {11,8,33,9,6,7,4,1,2,5},
+     {1,222,85,6,9,8},
+        {1,8,5,6,9,4,8},
+    };
+
+    for(int j=0; j<colSum[0].length; j++){
+        int colRes=0;
+        for(int i=0; i<colSum.length; i++){
+         //   colRes+=colSum[i][j];
+        }
+        //System.out.println("column : " + j + " sum : " + colRes);
+    }
+///transpose of matrix
+
+int matrix[][]={
+    {1,5,9,7},
+    {2,3,4,0},
+    {1,5,9,7},
+    {2,3,4,0},
+
+};
+for(int j=0; j<matrix[0].length; j++){
+    for(int i=0; i< matrix.length; i++){
+        System.out.print(matrix[i][j] + " ");
+
+    }
+    System.out.println();
+}
+
+
+//diagonal of matrix
+
+int diagonal[][]={
+    {1,2,3},
+    {40,50,60},
+    {700,800,900}
+};
+for(int i=0; i<diagonal.length; i++){
+    System.out.print(diagonal[i][i] + " ");
+}
+System.out.println();
+
+
+
+//search element in matrix
+  
+int matrices[][]={
+    {1,5,9,7},
+    {7,6,3,4},
+};
+int element=matrices[0][1];
+for(int i=0; i<matrices.length; i++){
+    for(int j=0; j<matrices[i].length; j++){
+        if(matrices[i][j]==element){
+            System.out.println("element found at row : " + i + " col :"+ j);
+        }
+    }
+}
+
+
+//matrix is symmetric or not.
+
+int symetricMatrix[][]={
+    {1,2,3},
+    {2,4,5},
+    {3,5,6},
+ };
+ boolean isSymetric=true;
+
+ for(int i=0; i<symetricMatrix.length; i++){
+      for(int j=0; j<symetricMatrix.length; j++){
+        if(symetricMatrix[i][j] != symetricMatrix[j][i]){
+             isSymetric=false;
+             break;
+        }
+       
+      }
+      if(!isSymetric){
+       break;
+        }
+ }
+ if(isSymetric){
+    System.out.println("matrix is symetric.");
+ }
+  else{
+    System.out.println("matrix is not symetric.");
+  }
+  
+
+  //spiral matric - it is advanced - :=> remaining.
+  
 }
 }
