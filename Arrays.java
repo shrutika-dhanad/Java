@@ -20,7 +20,8 @@ public class Arrays {
         // 3.init
 
         int brr[] = { 10, 20, 30, 40, 50 };
-
+           
+        
         System.out.println("element at index 0  " + brr[0]);
         System.out.println("element at index 1  " + brr[1]);
         System.out.println("element at index 2  " + brr[2]);
