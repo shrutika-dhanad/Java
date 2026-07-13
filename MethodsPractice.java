@@ -53,7 +53,13 @@ static void updateValue(int value){
   System.out.println(value);
 }
 
-  public static void main(String[] args) {
+
+static void Result(int val){
+  System.out.println("inside result:" +val);
+  val=val*2*2;
+  System.out.println("inside result: " +val);
+}
+                          public static void main(String[] args) {
 
     int num = 5;
     // System.out.println("inside main: "+ num);
@@ -82,6 +88,11 @@ static void updateValue(int value){
    System.out.println(value);
 
 
+
+   int val=10;
+   System.out.println("inside main " + val);
+   Result(val);
+   System.out.println("inside main" + val);
    
 
 
