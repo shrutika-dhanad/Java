@@ -23,7 +23,7 @@
 
 //     //no void return type
   
-// static int divide(int x,int y){
+// static int Multiply(int x,int y){
 //     return x*y;
 
 // }  
