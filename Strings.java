@@ -143,13 +143,20 @@ if(oldName.equals(newName)){
 //1.next(); :- it can take only 1 word as a imput 
 //2.nextLine():-it can take whole line in as input 
 
+// Scanner sc= new Scanner(System.in);
+// System.out.println("provide the String content for nextLine()");
+// String msg=sc.nextLine();
+// System.out.println("nextline value : " + msg );
+// System.out.println("provide the String content for next()");
+// String msg2=sc.next();
+// System.out.println("next value : "+ msg2);
+
+
+
 Scanner sc= new Scanner(System.in);
-System.out.println("provide the String content for nextLine()");
-String msg=sc.nextLine();
-System.out.println("nextline value : " + msg );
-System.out.println("provide the String content for next()");
-String msg2=sc.next();
-System.out.println("next value : "+ msg2);
+System.out.println("enter your age:");
+String age=sc.nextLine();
+System.out.println("my age is : " +age);
 
 
 
