@@ -97,6 +97,10 @@ for(String stri: arr){
 String hello="vaibhavi";
 hello=hello.replace('v', 'n');
 System.out.println(hello);
-        }
 
+String practice="shrutika is a student ";
+System.out.println(practice.endsWith("shrutika"));
+
+
+        }
 }
