@@ -112,6 +112,7 @@ public class Arrays {
 
         String mall[] = { "elpro", "phoinix", "Streets oof urpope", "amanora" };
         for (int i = 0; i <= mall.length - 1; i++) {
+
             System.out.println(mall[i]);
         }
 
@@ -160,7 +161,17 @@ public class Arrays {
 
 
 
+int practice[]={10,20,30,8,741,6256};
+int maximuValue = practice[0];
+int arrLen=practice.length;
 
+for(int i=0; i<arrLen; i++){
+    if(practice[i]>maximuValue ){
+        maximuValue=practice[i];
+    }
+    System.out.println(maximuValue);
+
+}
 
 
 
