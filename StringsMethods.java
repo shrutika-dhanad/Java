@@ -102,5 +102,12 @@ String practice="shrutika is a student ";
 System.out.println(practice.endsWith("shrutika"));
 
 
+
+String siName="dhanad      ";
+name=siName.substring(3,5);
+System.out.print(name);
+
+
+
         }
 }
