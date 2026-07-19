@@ -105,9 +105,15 @@ System.out.println(practice.endsWith("shrutika"));
 
 String siName="dhanad      ";
 name=siName.substring(3,5);
-System.out.print(name);
+System.out.println(name);
 
 
+String inputs ="hello,mummy,how,are,you";
+String arrays[]=inputs.split(",");
+for(String myArr : arrays){
+        System.out.println(myArr);
+
+}
 
         }
 }
