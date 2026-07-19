@@ -208,6 +208,13 @@ for(int i=0; i<=o-1 ; i++){
 
 
 
+int prac[]={10,50,90,80-2,8};
+for(int i=0; i<prac.length; i++){
+
+    System.out.println(prac[2]);
+    System.out.println(prac[i]);
+}
+
 }
 
 
