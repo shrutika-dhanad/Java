@@ -61,8 +61,17 @@ public class MathsInJava {
    }
 
 
-   
 
+static boolean isPalindrome(int number){
+    int originalValue=0;
+    int reversedNum=revNum(number);
+    if(reversedNum==revNum){
+        System.out.println("is palindeome");
+    }
+else{
+    System.out.println("not palindrome");
+}
+}
 
     public static void main(String[] args) {
 
