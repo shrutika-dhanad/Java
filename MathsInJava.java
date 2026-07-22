@@ -62,20 +62,20 @@ public class MathsInJava {
 
 
 
-static boolean isPalindrome(int number){
-    int originalValue=0;
-    int reversedNum=revNum(number);
-    if(reversedNum==revNum){
-        System.out.println("is palindeome");
-    }
-else{
-    System.out.println("not palindrome");
-}
-}
+// static boolean isPalindrome(int number){
+//     int originalValue=0;
+//     int reversedNum=revNum(number);
+//     if(reversedNum==revNum){
+//         System.out.println("is palindeome");
+//     }
+// else{
+//     System.out.println("not palindrome");gi
+// }
+// }
 
     public static void main(String[] args) {
 
-   int number=123654;
+   int number=12365856;
    int revNum=reversDigit(number);
    System.out.println(revNum);
 
