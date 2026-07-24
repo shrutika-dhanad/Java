@@ -170,7 +170,18 @@ public class MathsInJava {
     
     public static void main(String[] args) {
           
- 
+    //factorial
+
+    int n=5;
+    int fact=1;
+    for(int i=1; i<=n; i++){
+        fact = fact * i;
+
+    }
+    System.out.println(fact);
+
+
+
 
      int nu=6;
      System.out.println(isPerfectNumber(nu));
