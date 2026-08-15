@@ -1,7 +1,25 @@
 import java.util.Scanner;
 
 public class Strings{
+
+
+static String reverseString(String bestie){
+  String reverse = " ";
+  for(int i= bestie.length()-1; i>=0; i--){
+    char ch= bestie.charAt(i);
+     reverse=reverse+ch;
+
+  }
+  return reverse;
+}
+
     public static void main(String[] args) {
+  String bestie="vaibhaviBornare";
+  System.out.println("reverse: " + reverseString(bestie));
+
+
+
+      
         //string : - sequence of character .
         //we can combine multiple charaters together and this is known as String.
    
@@ -84,7 +102,7 @@ String myName="Shrutika";
 
  
 //compairing String.
- //1. ==   if literals are == then true otherwise false, case sensisitive.
+ //1. ==   if literals are == then true otherwise false, case sensitive.
  //          it  can compare the refrences, not the content.
 
 
