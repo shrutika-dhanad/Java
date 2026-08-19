@@ -12,25 +12,31 @@ class SavingAcoount extends BankAccount{
 }
 
 class CurrentAccount extends  BankAccount{
-    void interrrestRate(){
+    void interrestRate(){
         System.out.println("cuurent ac interest rate 7%");
     }
 }
 public class Account {
 public static void main(String[] args) {
 
-    BankAccount ba= new BankAccount();
-    ba.interrestRate(); ;
+    // BankAccount ba= new BankAccount();
+    // ba.interrestRate(); ;
 
-    ba =  new SavingAcoount();
-    ba.interrestRate();
+    // ba =  new SavingAcoount();
+    // ba.interrestRate();
 
-    ba= new CurrentAccount();
-    ba.interrestRate();
+    // ba= new CurrentAccount();
+    // ba.interrestRate();
 
+BankAccount[] ba ={
+    new BankAccount(),
+    new CurrentAccount(),
+    new SavingAcoount()
+};
 
-    
-
+for(BankAccount b : ba ){
+    b.interrestRate();
+}
 
 }    
 }
