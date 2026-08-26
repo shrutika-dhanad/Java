@@ -1,0 +1,19 @@
+ list is a inters is an oredered collection that allows us to store and access elements sequentially.
+ 
+Order matters
+Duplicates are allowed
+Index-based access is required
+
+list interface methods: -    
+   add() , 
+   addAll() ,
+   get() ,
+   iterator() ,
+   set() ,
+   remove() ,
+   removeAll() ,
+   clear() ,
+   size() ,
+   toArray() , 
+   contains() 
+    
