@@ -58,7 +58,7 @@ public class First {
         list2.clear();
         System.out.println(list2);
         System.out.println(list2.size());
-
+       System.out.println(list2);
 
         //iterator() - returns an iterator to access eleements of the collection.
         //it is a standard way , with the help of iterator we can traverse to all the dtata stuc / coellection.
