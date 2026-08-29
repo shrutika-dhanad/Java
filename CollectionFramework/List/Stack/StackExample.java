@@ -1,4 +1,5 @@
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Stack;
 import java.util.Vector;
@@ -26,7 +27,9 @@ public class StackExample {
         names.remove(String.valueOf("shrutika"));
         System.out.println(names);
 
+        System.out.println("is bhaiyya word contains in stack ");
         System.out.println(names.contains("Bhaiyya"));
+        System.out.println("yes ");
 
         // names.clear();
         // System.out.println(names);
@@ -69,8 +72,30 @@ public class StackExample {
             System.out.println("elements in the stack is : - " + iterator.next());
         }
 
+        System.out.println("sorting" + num);
         num.sort(null);
+        System.out.println("sorting" + num);
+
+        System.out.println(num.peek()); // return the topest elemetn in the stack
+
+        num.push(10025562);
         System.out.println(num);
+
+        num.pop();
+        System.out.println(num);  //it can remove the top most means last eleemnt in the stack 
+
+
+        System.out.println(num.search(50));  //if the element is present in the stack it return 1 and otherwise return -1.
+        System.out.println(num.empty());   
+
+         num.removeAll(num);
+         System.out.println(num);
+
+         System.out.println(num.empty());
+         System.out.println(num.search(0));
+
+
+         System.out.println(num.toArray());
     }
 
 }
