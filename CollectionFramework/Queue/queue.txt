@@ -1,0 +1,147 @@
+QUEUE:=>
+Queue is an interface in the Java Collection Framework that represents a collection 
+designed for holding elements before processing.
+ It generally follows the FIFO principle,
+ where the element inserted first is processed first.
+  Common implementations include LinkedList, PriorityQueue, and ArrayDeque.
+ Important Queue methods are add(), offer(), remove(), poll(), element(), and peek().
+
+ Key Characteristics
+Elements are typically inserted at the tail and removed from the head
+Most implementations don't allow null elements (e.g., PriorityQueue, ArrayDeque throw NullPointerException)
+Used in scenarios like task scheduling, buffering, BFS in graphs, etc.
+
+
+insertion is at end and removal at start.
+
+
+QUEUE --> (implementations) |
+                            |
+                            |
+                            |
+                            |
+              |-------------|------------------|            
+              ArrayDeque   LinkedList          PriorityQueue 
+
+
+methods:
+
+add() : -insert hte specified element into the queue. if the task is successfull, add(),
+     returns true, if not it throws an exception
+
+offer() : -insert hte specified element into the queue. if the task is successfull, offer(),
+     returns true, if not it returns false.
+
+element() -  returns the head of the queue, throws and exception if the queue is empty.
+
+peek() -  returns the head of the queue, returns null if the queue is empty.
+
+remove() - returns and remove the heead of the queue, throws an exception if the queue is empty.
+
+poll()-  returns and removes the head of the queue, returns null if the queue is empty.
+
+
+
+
+DEQUE- 
+ in DEQUE the insertion/deletion are from both ends (front/rear)
+ we can also give a refrence of a DEQUE.
+
+ Deque is an interface in the Java Collection Framework that represents a double-ended queue, allowing insertion, removal,
+  and inspection of elements from both the front and rear ends.
+
+ In Java, Deque is an interface in the java.util package that allows us to insert and remove elements from both ends — the front and the rear.
+ a normal queue follows FIFO but a Deque follows operation at both ends.
+ Add at front
+Add at rear
+Remove from front
+Remove from rear
+View front
+View rear
+
+   Collection
+                 |
+                 |
+                Queue
+                 |
+                Deque
+              /       \
+       ArrayDeque    LinkedList
+
+Operation           	Front	      Rear
+Add             	addFirst()      addLast()
+Offer	         offerFirst()	offerLast()
+Remove	         removeFirst()	removeLast()
+Poll	               pollFirst()	 pollLast()
+View	                getFirst()	getLast()
+Peek	                 peekFirst()	peekLast()\
+
+
+ArrayDeque:=>
+
+    ArrayDeque is a class in the Java Collection Framework that implements the Deque interface.
+
+    ⭐ Interview definition
+
+ArrayDeque is a resizable-array implementation of the Deque interface that allows insertion and removal of elements from both ends.
+ It can be used as both a Queue and a Stack, and it does not allow null elements.
+
+    Collection
+    ↓
+   Queue
+    ↓
+   Deque
+    ↓
+ArrayDeque
+
+ArrayDeque = Resizable-array implementation of the Deque interface.
+
+It allows you to add and remove elements from both ends.
+ArrayDeque does NOT allow null
+
+It can be used as both:
+
+Queue → FIFO
+Stack → LIFO
+
+9. ArrayDeque vs ArrayList
+
+Don't confuse these two.
+
+ArrayList	ArrayDeque
+Implements List	Implements Deque
+General-purpose list	Double-ended queue
+Access by index	No index-based access
+get(index) available	getFirst(), getLast()
+Good for random access	Good for operations at both ends
+Allows null	Allows null
+Can use add(index, element)	No
+
+addFirst()
+addLast()
+
+removeFirst()
+removeLast()
+
+peekFirst()
+peekLast()
+
+offerFirst()
+offerLast()
+
+pollFirst()
+pollLast()
+
+push()
+pop()
+peek()
+
+
+
+PriorityQueue:=>
+
+
+Interview Definition
+
+PriorityQueue is a Queue implementation in Java that uses a heap to process elements according to priority.
+ By default, it is a min-priority queue, where the smallest element has the highest priority. It allows duplicates but does not allow null elements.
