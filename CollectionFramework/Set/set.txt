@@ -1,0 +1,33 @@
+Set :
+The set interface of the jcf provides the features of the  mathematical set in java. 
+it extends the collection interface   ,
+umlike the list interface , set cannot contain the duplicate elements
+Set is a dt we can only store the unique elements inside it.
+
+
+set---(implements)----------->Enumset ---- hashset----LinkedHashSet-----TreeSet
+
+In the Java Collections Framework (JCF), Set is an interface that represents a collection that does not allow duplicate elements. 
+It models the mathematical concept of a set.
+
+Key Characteristics
+No duplicates: A Set contains at most one null element and no two elements e1, e2 such that e1.equals(e2) is true.
+Extends Collection: Set inherits all methods from the Collection interface (add, remove, size, contains, iterator, etc.) but
+ adds no new methods of its own — it enforces stricter behavior on the inherited ones.
+Unordered (generally): Most Set implementations don't guarantee any particular iteration order, though some do.
+
+the set interface include the all the methods of the collection interface  , its because collection is super intrrface of the set.
+some of the commenly used methods of the collection interface thats also available in the set interface are:
+
+add(),
+addAll(),
+iterator(),
+remove(), 
+removeAll(),
+retainAll() - retialns all the elements in the set that are also present in another specified set.returns onlu the common elemetns ffrom the 2 sets.
+clear()
+size()
+toArray(),
+contains()
+containsAll()- retyrns true  if the set containns all the elements of the specified collection.
+hashcode() - returns a hashcode values (address of the element in the set).
