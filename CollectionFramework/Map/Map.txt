@@ -1,0 +1,55 @@
+Map: 
+in java map elements are stored in key-value pairs, 
+keys are unique values asssociated with individual values ,
+A map cannot contain a duplicate keys 
+and each key is asssociated with a single values.
+
+
+1.No duplicate keys:each keys can map to at most one value.however, diffrent keys can map to tha same value.
+2.Key-value asssociation : it maintains an assosiation of keys to values.
+3.implementation: spme of the well-known classes that implement the map interface are (HashMap,TreeMap,LinkedHashMap,
+and HashTable).
+4.Order: the map interface itself dosent guarantee any specific order of its elements. however, some specific implementations
+like treemap maintain a sorted order.
+and LinkedHashMap maintains the insertion ordeer.
+5.Null values: Maps allow null and depending on the implementation , null keys.for ex-HashMap allows one null key and multiple
+null values , but hashtable does not allow null keys or values.
+
+
+//Map methods 
+
+1. put(k,v)-inserts the assosiation of a key K and a value V into the map. if the key is already present , the new value replaces the 
+old value.
+
+2. putAll() - inserts all the entries from the specified map to this map.
+
+3.putIfAbsent(k,v) - inserts the assosiation if the key K is not already asssociated eith the value v.
+jr mapping already nsel trch put kro.
+
+4.getOrDefault(K, defaultValue) - returns the value asssociated with the specified key k. if the key is not found , it returns the
+defaultValue.
+
+5.containsKey(K) - Checks if the specified key k is present in the map or not.
+
+6.containsValue(V) - Checks if the specified value V is present in the map or not
+
+7.remove(key)
+8.size()
+9.clear()
+
+10.get(K) - returns the value asssociated with the specified key K. if the key is not found, it reyurns null.
+
+11.replace(K,V): replaces the valie of the key eith the new specified values V.
+
+12. replace(K, oldvalue,newValue) : replaces the value of the key k with the new value newValue only if the key K is  asssociated
+ with the value oldvalue
+
+ 13.remove(K) : removes the entry from the map represented by the key k.
+
+ 14.remove(K,V) : removes the entry from the map that has the key k asssociated with value v.
+
+ 15keyset() - returns a set of all the keys present in a map.
+
+ 16.values() - returns a set of all the values present in a map.
+
+ 17.entrySet() -  returns a set of all the key/value mapping  present in a map.

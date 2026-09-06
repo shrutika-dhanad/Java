@@ -3,7 +3,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-
 public class MapExample {
     public static void main(String[] args) {
         Map<String, String> mapping = new HashMap<>();
@@ -48,31 +47,37 @@ public class MapExample {
         mp.putAll(mapping);
         System.out.println(mp);
 
-    System.out.println(mp.keySet()); // we can also create
+        System.out.println(mp.keySet()); // we can also create
 
-    Set<String> keyset = mapping.keySet();
+        Set<String> keyset = mapping.keySet();
 
+        System.out.println(keyset);
 
-    System.out.println(keyset);   
+        Set<String> keyset2 = mp.keySet();
+        System.out.println(keyset2);
 
-    Set<String> keyset2 = mp.keySet();
-    System.out.println(keyset2);
+        Collection<String> valueset = mp.values();
+        System.out.println(valueset);
 
-   Collection<String> valueset=  mp.values();
-   System.out.println(valueset);
-    
-     Set<Map.Entry<String,String>> entryst = mp.entrySet();
-     System.out.println(entryst);
-   
-     Set<Map.Entry<String,String>> entryst1 = mapping.entrySet();
-     System.out.println(entryst1); 
+        Set<Map.Entry<String, String>> entryst = mp.entrySet();
+        System.out.println(entryst);
 
+        Set<Map.Entry<String, String>> entryst1 = mapping.entrySet();
+        System.out.println(entryst1);
 
+        // iterating over a map:
 
-     //iterating over a map:
+        for (Map.Entry<String, String> entry : mapping.entrySet()) {
+            System.out.println("keys " + entry.getKey() + ", values :  " + entry.getValue());
+        }
 
-     for(Map.Entry<String,String> entry : mapping.entrySet()){
-        System.out.println("keys " +entry.getKey() + ", values :  " + entry.getValue());
-     }
+        mapping.clear();
+        System.out.println(mapping);
+
+        mp.clear();
+        System.out.println(mp);
+
+        System.out.println(mp.size());
+        
     }
 }
