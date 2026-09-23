@@ -1,4 +1,3 @@
-
 //O(n) - time complexity and O(1) - is space complexity.
 
 public class One_Avg_of_Arr_Elements {
@@ -8,6 +7,7 @@ public class One_Avg_of_Arr_Elements {
         sum += i;
 
     }
+    
     int size = arr.length;
     double avg =sum /size;
     return  avg;

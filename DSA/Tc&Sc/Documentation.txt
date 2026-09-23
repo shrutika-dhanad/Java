@@ -1,0 +1,26 @@
+time coplexity: 
+Time taken by ur program depending upon input ].
+
+space complexity:
+ space/ memory taken by your program, depending upon ur input size is callled Space complexity.
+
+ O- Big o notation - worst case - upper bound - worst case is represented using O(n) , multiple cases find out krava lagta tevha.
+ Omega- Omega notation - best case - lower bound - it is represented using omega , quick ans bhetat tevha we use omega(1)
+Theta - avg case - middle - represented using theta(n/2) - values will be ignore so- theta(n)
+
+
+O(1) ->  O(log n) -> O(root n ) -> O(n) -> o(n log n) -> O(n2) - > O( n3) -> O(2 raise to  n 2n) -> O(n!) -> O(n n - n raise to n) 
+
+
+
+O(1) - constatnt time.
+O(n) - Linier.
+O(n sqr)- Quadratic.
+O(log n ) - Logarithamic
+
+rules : 
+1. ignore constant.
+2. drop lower terms.
+3.nested loops multiply.
+4.seperate loops add.
+5. condition based loop.
