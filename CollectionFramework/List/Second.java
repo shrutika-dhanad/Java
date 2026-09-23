@@ -35,9 +35,24 @@ public class Second {
         list.set(2 ,500);
         System.out.println(list);
 
-        //toArray() =
+        //3.toArray() =it can convert any type of collection/list into an aaray.
+        //   this method can return object ka Array.
 
-       Object [] arr =list.toArray();
-       
+     
+
+       Object[] arr =list.toArray();
+       for(Object obj : list)
+        {
+            System.out.println(obj);
+        }
+
+
+//4.contains: it returns true if eleement is present 
+         
+     System.out.println(list.contains(82465876));
+         
+
+
+
     }
 }

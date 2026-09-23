@@ -26,7 +26,7 @@ public class PriorityQueueEx {
 
         // System.out.println("ele: " + pq);
 
-        //*********************coverting into max-heap  */
+        //*********************coverting into max-heap*********************************************//
     
      Queue<Integer> pq = new PriorityQueue<>((a,b)->b-a);
 

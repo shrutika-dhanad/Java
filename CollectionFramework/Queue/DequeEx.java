@@ -9,7 +9,6 @@ public class DequeEx {
         dq.add("pritesh");
         dq.add("vaibhavii");
         dq.add("Raj");
-        dq.add("Aditya");
         dq.add("tejashri");
 
         System.out.println(dq);

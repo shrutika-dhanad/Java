@@ -1,0 +1,2032 @@
+java collection framwork
+
+Fast answer
+Java Collection Framework (JCF)
+
+The Java Collection Framework (JCF) is a set of classes and interfaces in Java that provides a standard way to store, manipulate, 
+and retrieve groups of objects.
+
+Java’s Collections Framework is a powerful set of classes and interfaces that provides a foundation for working
+ with groups of objects. Whether you are dealing with lists, sets, maps, or queues,
+ the Collections Framework offers a rich set of tools to manipulate and organize data efficiently. 
+
+def - jcf provides a set of interfaces and classes to implements various data structures and algo 
+jcf provides various interfaces, these interfaces include several methodss to perform diffrent operations on collections.
+
+
+1.collectin : interface is the root interfcae of the colle framework Hierarchy 
+             java does not provide direct implementation of the collection interface but provides the implementation of its
+              subinterfaces like list , set , and queue.
+Advantages
+Reduces programming effort.
+Increases code reusability.
+Improves performance with optimized data structures.
+Provides standard APIs for data manipulation.
+Hierarchy of Java Collection Framework
+                  Iterable
+                      |
+                 Collection (Interface)
+          ___________|____________
+         |           |            |
+       List         Set         Queue
+         |           |            |
+  ArrayList      HashSet      PriorityQueue    //concreate classes 
+  LinkedList     LinkedHashSet
+  Vector         TreeSet
+     |
+   Stack
+
+Map (Separate Interface)
+   |
+HashMap
+LinkedHashMap
+TreeMap
+Hashtable
+Main Interfaces
+1. List
+Stores ordered elements.
+Allows duplicate elements.
+Maintains insertion order.
+
+Classes:
+
+ArrayList
+LinkedList
+Vector
+Stack
+
+metods of collection:
+add() , size() , remove()  , iterator() , addAll() , removeAll() , clear() 
+
+
+
+Example:
+
+import java.util.*;
+
+public class ListExample {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Apple");
+
+        System.out.println(list);
+    }
+}
+
+Output:
+
+[Apple, Banana, Apple]
+2. Set
+Does not allow duplicate elements.
+Stores unique values.
+
+Classes:
+
+HashSet
+LinkedHashSet
+TreeSet
+
+Example:
+
+Set<Integer> set = new HashSet<>();
+
+set.add(10);
+set.add(20);
+set.add(10);
+
+System.out.println(set);
+
+Output:
+
+[10, 20]
+3. Queue
+Follows FIFO (First In, First Out).
+Used for scheduling and processing tasks.
+
+Classes:
+
+PriorityQueue
+LinkedList
+ArrayDeque
+
+Example:
+
+Queue<String> queue = new LinkedList<>();
+
+queue.add("A");
+queue.add("B");
+
+System.out.println(queue.poll());
+System.out.println(queue.peek());
+
+Output:
+
+A
+B
+4. Map
+Stores data as key-value pairs.
+Keys are unique.
+
+Classes:
+
+HashMap
+LinkedHashMap
+TreeMap
+Hashtable
+
+Example:
+
+Map<Integer, String> map = new HashMap<>();
+
+map.put(1, "John");
+map.put(2, "David");
+
+System.out.println(map.get(1));
+
+Output:
+
+John
+Commonly Used Collection Classes
+Class	Ordered	Duplicates	Null Allowed	Best Use
+ArrayList	Yes	Yes	Yes	Fast random access
+LinkedList	Yes	Yes	Yes	Frequent insert/delete
+HashSet	No	No	One null	Fast unique storage
+LinkedHashSet	Yes	No	One null	Maintain insertion order
+TreeSet	Sorted	No	No	Sorted unique elements
+HashMap	No	Keys: No, Values: Yes	One null key	Fast key-value lookup
+LinkedHashMap	Yes	Keys: No	One null key	Ordered key-value pairs
+TreeMap	Sorted	Keys: No	No null keys	Sorted key-value pairs
+PriorityQueue	Priority order	Yes	No	Priority-based processing
+Common Methods
+Method	Description
+add()	Adds an element
+remove()	Removes an element
+contains()	Checks if an element exists
+size()	Returns number of elements
+isEmpty()	Checks if collection is empty
+clear()	Removes all elements
+iterator()	Traverses the collection
+When to Use Which Collection?
+ArrayList → Fast reading and random access.
+LinkedList → Frequent insertion and deletion.
+HashSet → Store unique elements quickly.
+TreeSet → Keep unique elements in sorted order.
+HashMap → Fast key-value storage and retrieval.
+TreeMap → Sorted key-value pairs.
+PriorityQueue → Process elements based on priority.
+Interview Questions
+What is the Java Collection Framework?
+Difference between ArrayList and LinkedList?
+Difference between HashSet, LinkedHashSet, and TreeSet?
+Difference between HashMap and TreeMap?
+Why is Map not part of the Collection interface?
+What is the difference between Iterator and ListIterator?
+Explain the internal working of HashMap.
+When should you use ArrayDeque instead of Stack?
+
+These concepts cover the core of the Java Collection Framework and are commonly asked in Java interviews and exams.
+
+Improve accuracy for complex study work
+Upgrade to Plus and use increased reasoning to solve harder coursework accurately.
+Get Plus
+
+
+
+collection framework in java
+
+Java Collections Framework (JCF)
+The Collections Framework is Java's unified architecture for storing, manipulating, and retrieving groups of objects. It lives mainly in java.util.
+
+Core Structure
+At the top is the Collection interface (and separately, Map, which doesn't extend Collection):
+
+Iterable
+  └── Collection
+        ├── List
+        ├── Set
+        │     └── SortedSet → NavigableSet
+        └── Queue
+              └── Deque
+
+Map
+  └── SortedMap → NavigableMap
+Main Interfaces & Implementations
+List (ordered, allows duplicates)
+
+ArrayList — resizable array, fast random access
+LinkedList — doubly-linked list, fast insert/delete at ends
+Vector — legacy, synchronized
+Set (no duplicates)
+
+HashSet — no order guarantee, O(1) average operations
+LinkedHashSet — maintains insertion order
+TreeSet — sorted order (implements NavigableSet)
+Queue / Deque
+
+LinkedList — implements both List and Deque
+PriorityQueue — orders elements by priority/comparator
+ArrayDeque — resizable array-based deque, preferred over Stack
+Map (key-value pairs, not a true Collection)
+
+HashMap — no order, O(1) average
+LinkedHashMap — insertion or access order
+TreeMap — sorted by key (implements NavigableMap)
+Hashtable — legacy, synchronized
+Key Classes
+Collections — utility class with static methods (sort, reverse, shuffle, unmodifiableList, synchronizedList, etc.)
+Arrays — utility for array-to-list conversions and array operations
+Quick Comparison
+Implementation	Ordering	Duplicates	Null	Thread-safe
+ArrayList	Insertion	Yes	Yes	No
+LinkedList	Insertion	Yes	Yes	No
+HashSet	None	No	One null	No
+LinkedHashSet	Insertion	No	One null	No
+TreeSet	Sorted	No	No	No
+HashMap	None	Keys unique	One null key	No
+TreeMap	Sorted by key	Keys unique	No null key	No
+Example Usage
+java
+List<String> list = new ArrayList<>();
+list.add("apple");
+list.add("banana");
+
+Set<String> set = new HashSet<>(list); // removes duplicates
+
+Map<String, Integer> map = new HashMap<>();
+map.put("apple", 1);
+map.put("banana", 2);
+
+for (Map.Entry<String, Integer> entry : map.entrySet()) {
+    System.out.println(entry.getKey() + " = " + entry.getValue());
+}
+
+Collections.sort(list); // sorts in natural order
+Choosing the Right Collection
+Need indexed access / order → ArrayList
+Need frequent inserts/deletes at ends → LinkedList or ArrayDeque
+Need uniqueness, don't care about order → HashSet
+Need uniqueness + insertion order → LinkedHashSet
+Need uniqueness + sorted order → TreeSet
+Need key-value lookup → HashMap
+Need key-value lookup + sorted keys → TreeMap
+Need thread safety → use Collections.synchronizedXxx() wrappers or java.util.concurrent classes (ConcurrentHashMap, CopyOnWriteArrayList, etc.)
+Want me to go deeper into any part — like generics with collections, the Comparable/Comparator interfaces, iterators, or the java.util.concurrent collections?
+
+java collection framwork
+
+Fast answer
+Java Collection Framework (JCF)
+
+The Java Collection Framework (JCF) is a set of classes and interfaces in Java that provides a standard way to store, manipulate, and retrieve groups of objects.
+
+Advantages
+Reduces programming effort.
+Increases code reusability.
+Improves performance with optimized data structures.
+Provides standard APIs for data manipulation.
+Hierarchy of Java Collection Framework
+                  Iterable
+                      |
+                 Collection (Interface)
+          ___________|____________
+         |           |            |
+       List         Set         Queue
+         |           |            |
+  ArrayList      HashSet      PriorityQueue
+  LinkedList     LinkedHashSet
+  Vector         TreeSet
+     |
+   Stack
+
+Map (Separate Interface)
+   |
+HashMap
+LinkedHashMap
+TreeMap
+Hashtable
+Main Interfaces
+1. List
+Stores ordered elements.
+Allows duplicate elements.
+Maintains insertion order.
+
+Classes:
+
+ArrayList
+LinkedList
+Vector
+Stack
+
+Example:
+
+import java.util.*;
+
+public class ListExample {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>();
+
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Apple");
+
+        System.out.println(list);
+    }
+}
+
+Output:
+
+[Apple, Banana, Apple]
+2. Set
+Does not allow duplicate elements.
+Stores unique values.
+
+Classes:
+
+HashSet
+LinkedHashSet
+TreeSet
+
+Example:
+
+Set<Integer> set = new HashSet<>();
+
+set.add(10);
+set.add(20);
+set.add(10);
+
+System.out.println(set);
+
+Output:
+
+[10, 20]
+3. Queue
+Follows FIFO (First In, First Out).
+Used for scheduling and processing tasks.
+
+Classes:
+
+PriorityQueue
+LinkedList
+ArrayDeque
+
+Example:
+
+Queue<String> queue = new LinkedList<>();
+
+queue.add("A");
+queue.add("B");
+
+System.out.println(queue.poll());
+System.out.println(queue.peek());
+
+Output:
+
+A
+B
+4. Map
+Stores data as key-value pairs.
+Keys are unique.
+
+Classes:
+
+HashMap
+LinkedHashMap
+TreeMap
+Hashtable
+
+Example:
+
+Map<Integer, String> map = new HashMap<>();
+
+map.put(1, "John");
+map.put(2, "David");
+
+System.out.println(map.get(1));
+
+Output:
+
+John
+Commonly Used Collection Classes
+Class	Ordered	Duplicates	Null Allowed	Best Use
+ArrayList	Yes	Yes	Yes	Fast random access
+LinkedList	Yes	Yes	Yes	Frequent insert/delete
+HashSet	No	No	One null	Fast unique storage
+LinkedHashSet	Yes	No	One null	Maintain insertion order
+TreeSet	Sorted	No	No	Sorted unique elements
+HashMap	No	Keys: No, Values: Yes	One null key	Fast key-value lookup
+LinkedHashMap	Yes	Keys: No	One null key	Ordered key-value pairs
+TreeMap	Sorted	Keys: No	No null keys	Sorted key-value pairs
+PriorityQueue	Priority order	Yes	No	Priority-based processing
+Common Methods
+Method	Description
+add()	Adds an element
+remove()	Removes an element
+contains()	Checks if an element exists
+size()	Returns number of elements
+isEmpty()	Checks if collection is empty
+clear()	Removes all elements
+iterator()	Traverses the collection
+When to Use Which Collection?
+ArrayList → Fast reading and random access.
+LinkedList → Frequent insertion and deletion.
+HashSet → Store unique elements quickly.
+TreeSet → Keep unique elements in sorted order.
+HashMap → Fast key-value storage and retrieval.
+TreeMap → Sorted key-value pairs.
+PriorityQueue → Process elements based on priority.
+Interview Questions
+What is the Java Collection Framework?
+Difference between ArrayList and LinkedList?
+Difference between HashSet, LinkedHashSet, and TreeSet?
+Difference between HashMap and TreeMap?
+Why is Map not part of the Collection interface?
+What is the difference between Iterator and ListIterator?
+Explain the internal working of HashMap.
+When should you use ArrayDeque instead of Stack?
+
+These concepts cover the core of the Java Collection Framework and are commonly asked in Java interviews and exams.
+
+Today 5:39 PM
+explain all topics in fullly detail  
+
+Absolutely. Since you are preparing Java for interviews, let's study the Java Collection Framework (JCF) from basics to advanced level, step by step.
+
+Java Collection Framework — Complete Detailed Notes
+1. What is a Collection?
+
+A collection is an object that is used to store and manage a group of objects.
+
+For example, suppose you want to store 5 student names:
+
+String name1 = "Rahul";
+String name2 = "Amit";
+String name3 = "Sneha";
+String name4 = "Pooja";
+String name5 = "Neha";
+
+This becomes difficult when you have 1,000 students.
+
+Instead, we can use a collection:
+
+ArrayList<String> students = new ArrayList<>();
+
+students.add("Rahul");
+students.add("Amit");
+students.add("Sneha");
+students.add("Pooja");
+students.add("Neha");
+
+Now all students are stored in one object.
+
+Simple definition for interview
+
+Collection is an object that represents a group of objects and provides methods to store, retrieve, manipulate, and process those objects.
+
+2. What is Collection Framework?
+
+The Java Collection Framework is a collection of interfaces, classes, and algorithms provided by Java to store and manipulate groups of objects.
+
+It provides ready-made data structures such as:
+
+ArrayList
+LinkedList
+HashSet
+TreeSet
+HashMap
+TreeMap
+Queue
+Stack
+etc.
+
+Instead of creating our own data structures from scratch, we can use these built-in classes.
+
+Main benefits
+Ready-made data structures
+Less coding
+Reusable code
+Better performance
+Standardized API
+Easy data manipulation
+3. Why do we need Collection Framework?
+
+Before collections, Java mainly used arrays to store multiple values.
+
+Example:
+
+int[] numbers = {10, 20, 30, 40};
+
+Arrays have limitations.
+
+Problem 1: Fixed size
+int[] numbers = new int[5];
+
+You can store only 5 elements.
+
+You cannot easily increase the size.
+
+Collections are generally resizable.
+
+ArrayList<Integer> numbers = new ArrayList<>();
+
+numbers.add(10);
+numbers.add(20);
+numbers.add(30);
+
+You can keep adding elements.
+
+Problem 2: Limited built-in operations
+
+With arrays, you have to write your own logic for many operations.
+
+Collections provide methods such as:
+
+add()
+remove()
+contains()
+size()
+clear()
+4. Collection Framework Hierarchy
+
+This is extremely important for interviews.
+
+                         Iterable
+                            |
+                       Collection
+                            |
+             _______________|_______________
+            |               |               |
+           List             Set            Queue
+            |               |               |
+     _______|______      ____|_____      ____|____
+    |       |      |    |    |     |    |         |
+ArrayList LinkedList Vector HashSet LinkedHashSet TreeSet PriorityQueue
+              |
+            Stack
+
+
+                         Map
+                          |
+             ______________|______________
+            |             |              |
+        HashMap      LinkedHashMap     SortedMap
+                                          |
+                                       NavigableMap
+                                          |
+                                       TreeMap
+
+Important: Map is not a child of Collection.
+
+This is a very common interview question.
+
+5. Iterable Interface
+
+Iterable is the top-level interface for the collection hierarchy.
+
+It provides the ability to iterate through elements.
+
+Important method:
+
+iterator()
+
+Example:
+
+ArrayList<String> names = new ArrayList<>();
+
+names.add("Amit");
+names.add("Rahul");
+names.add("Sneha");
+
+Iterator<String> itr = names.iterator();
+
+while (itr.hasNext()) {
+    System.out.println(itr.next());
+}
+
+Output:
+
+Amit
+Rahul
+Sneha
+6. Collection Interface
+
+Collection is the root interface of the main collection hierarchy.
+
+It provides common methods.
+
+Important methods
+add()
+addAll()
+remove()
+removeAll()
+contains()
+containsAll()
+size()
+isEmpty()
+clear()
+iterator()
+toArray()
+
+Example:
+
+Collection<String> names = new ArrayList<>();
+
+names.add("A");
+names.add("B");
+names.add("C");
+
+System.out.println(names.size());
+System.out.println(names.contains("B"));
+
+Output:
+
+3
+true
+7. List Interface
+
+List is used when:
+
+Order matters
+Duplicates are allowed
+Index-based access is required
+
+Example:
+
+[Apple, Banana, Apple, Mango]
+
+Notice that Apple occurs twice.
+
+Main List implementations
+ArrayList
+LinkedList
+Vector
+Stack
+8. ArrayList
+
+ArrayList is one of the most commonly used collection classes.
+
+It internally uses a resizable array.
+
+Example:
+
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<String> names = new ArrayList<>();
+
+        names.add("Rahul");
+        names.add("Amit");
+        names.add("Sneha");
+
+        System.out.println(names);
+    }
+}
+
+Output:
+
+[Rahul, Amit, Sneha]
+Features
+
+Maintains insertion order
+Allows duplicates
+Allows multiple null values
+Fast random access
+Dynamic/resizable
+Not synchronized
+ArrayList indexing
+ArrayList<String> names = new ArrayList<>();
+
+names.add("A");
+names.add("B");
+names.add("C");
+
+System.out.println(names.get(0));
+
+Output:
+
+A
+
+Index starts from 0.
+
+Important ArrayList methods
+add()
+names.add("Rahul");
+get()
+names.get(0);
+set()
+
+Changes an element.
+
+names.set(0, "Amit");
+remove()
+names.remove(0);
+contains()
+names.contains("Rahul");
+size()
+names.size();
+clear()
+names.clear();
+isEmpty()
+names.isEmpty();
+9. ArrayList vs Array
+Array	ArrayList
+Fixed size	Dynamic size
+Can store primitives	Stores objects/wrappers
+Less functionality	Many built-in methods
+Faster in some basic operations	More flexible
+Can use int[]	Uses Integer for integer values
+
+Example:
+
+int[] arr = new int[5];
+
+vs
+
+ArrayList<Integer> list = new ArrayList<>();
+10. How ArrayList works internally
+
+This is important for interviews.
+
+ArrayList internally uses an array.
+
+Conceptually:
+
+ArrayList
+    |
+    v
+Object[]
+    |
+    +---- 10
+    +---- 20
+    +---- 30
+
+When the internal array becomes full, ArrayList creates a larger array and copies the existing elements.
+
+So it is called a dynamic/resizable array.
+
+Time complexity
+Operation	Average
+get()	O(1)
+set()	O(1)
+add()	O(1) amortized
+remove by index	O(n)
+
+search	O(n)
+
+
+11. LinkedList
+
+LinkedList implements both:
+
+List
+Deque
+
+It is based on linked nodes.
+
+Conceptually:
+
+Node        Node        Node
+[10|next] -> [20|next] -> [30|null]
+
+Each node contains:
+
+Data
+Link/reference to another node
+
+Java's LinkedList is a doubly linked list, so nodes maintain links in both directions.
+
+Example
+LinkedList<Integer> numbers = new LinkedList<>();
+
+numbers.add(10);
+numbers.add(20);
+numbers.add(30);
+
+System.out.println(numbers);
+
+Output:
+
+[10, 20, 30]
+LinkedList methods
+add()
+addFirst()
+addLast()
+remove()
+removeFirst()
+removeLast()
+getFirst()
+getLast()
+
+Example:
+
+LinkedList<String> names = new LinkedList<>();
+
+names.add("A");
+names.add("B");
+
+names.addFirst("Start");
+names.addLast("End");
+
+System.out.println(names);
+
+Output:
+
+[Start, A, B, End]
+12. ArrayList vs LinkedList
+
+Very important interview question.
+
+ArrayList	LinkedList
+Dynamic array	Doubly linked list
+Fast random access	Slow random access
+get() is O(1)	get() is O(n)
+Insertion/deletion in middle generally O(n)	Once node position is known, insertion/deletion is O(1)
+Less memory overhead	More memory because of node links
+Which one should you use?
+
+Use ArrayList when you frequently access elements by index.
+
+Use LinkedList when you specifically need linked-list/deque operations and frequent insertion/removal at the ends.
+
+13. Vector
+
+Vector is a legacy collection class.
+
+It is similar to ArrayList but its methods are synchronized.
+
+Vector<Integer> numbers = new Vector<>();
+
+numbers.add(10);
+numbers.add(20);
+ArrayList vs Vector
+ArrayList	Vector
+Not synchronized	Synchronized
+Better general performance	More synchronization overhead
+Modern choice	Legacy class
+
+In modern concurrent code, other collection/concurrency designs are often preferred over Vector.
+
+14. Stack
+
+Stack represents LIFO:
+
+Last In, First Out
+
+Example:
+
+Push 10
+Push 20
+Push 30
+
+Stack:
+
+30 ← top
+20
+10
+
+If you remove an element:
+
+30
+
+is removed first.
+
+Example:
+
+Stack<Integer> stack = new Stack<>();
+
+stack.push(10);
+stack.push(20);
+stack.push(30);
+
+System.out.println(stack.pop());
+
+Output:
+
+30
+Important methods
+push()
+pop()
+peek()
+empty()
+search()
+Important interview point
+
+Stack is a legacy class. For stack/queue-style operations, Deque implementations such as ArrayDeque are generally preferred in modern Java.
+
+15. Set Interface
+
+Set is used to store unique elements.
+
+Duplicates are not allowed.
+
+Example:
+
+HashSet<Integer> numbers = new HashSet<>();
+
+numbers.add(10);
+numbers.add(20);
+numbers.add(10);
+
+System.out.println(numbers);
+
+The second 10 is not added.
+
+Conceptually:
+
+10
+20
+16. HashSet
+
+HashSet stores unique elements using hashing.
+
+Example:
+
+HashSet<String> names = new HashSet<>();
+
+names.add("Amit");
+names.add("Rahul");
+names.add("Amit");
+
+System.out.println(names);
+
+Only one "Amit" remains.
+
+Features
+No duplicates
+No guaranteed iteration order
+Allows one null
+Fast average insertion/search/removal
+Uses hashing internally
+17. How HashSet works
+
+Suppose:
+
+set.add(100);
+
+Java calculates a hash-related value and uses it to determine where the element should be stored.
+
+Conceptually:
+
+HashSet
+   |
+Hash table
+   |
+Bucket 0
+Bucket 1
+Bucket 2 -> 100
+Bucket 3
+...
+
+When searching:
+
+set.contains(100);
+
+Java uses hashing to efficiently locate the relevant bucket.
+
+18. hashCode() and equals()
+
+These two methods are extremely important for HashSet and HashMap interviews.
+
+equals()
+
+Used to determine whether two objects are logically equal.
+
+hashCode()
+
+Returns an integer hash value used by hash-based collections.
+
+Important contract:
+
+If two objects are equal according to equals(), they must return the same hashCode().
+
+But the reverse is not necessarily true:
+
+Same hash code does not guarantee that two objects are equal.
+
+19. LinkedHashSet
+
+LinkedHashSet is similar to HashSet but maintains insertion order.
+
+Example:
+
+LinkedHashSet<Integer> set = new LinkedHashSet<>();
+
+set.add(30);
+set.add(10);
+set.add(20);
+
+System.out.println(set);
+
+Output:
+
+[30, 10, 20]
+Difference
+HashSet
+→ unique
+→ no guaranteed order
+
+LinkedHashSet
+→ unique
+→ insertion order maintained
+20. TreeSet
+
+TreeSet stores unique elements in sorted order.
+
+Example:
+
+TreeSet<Integer> numbers = new TreeSet<>();
+
+numbers.add(50);
+numbers.add(10);
+numbers.add(30);
+numbers.add(20);
+
+System.out.println(numbers);
+
+Output:
+
+[10, 20, 30, 50]
+Features
+No duplicates
+Sorted order
+Typically O(log n) for basic operations
+Does not permit null as an element in natural-order use
+21. HashSet vs LinkedHashSet vs TreeSet
+Feature	HashSet	LinkedHashSet	TreeSet
+Duplicates	No	No	No
+Order	No guaranteed order	Insertion order	Sorted
+Performance	Generally fastest	Slightly more overhead	Generally slower
+Main structure	Hash table	Hash table + linked ordering	Balanced tree
+Null	One null	One null	Generally no null
+Remember
+HashSet       → Unique
+LinkedHashSet → Unique + Insertion order
+TreeSet       → Unique + Sorted
+22. Queue
+
+A queue generally follows:
+
+FIFO — First In, First Out
+
+Example:
+
+Person A → Person B → Person C
+
+A enters first, so A is processed first.
+
+Java provides Queue.
+
+Example:
+
+Queue<String> queue = new LinkedList<>();
+
+queue.offer("A");
+queue.offer("B");
+queue.offer("C");
+
+System.out.println(queue.poll());
+
+Output:
+
+A
+23. Queue Important Methods
+
+There are paired methods:
+
+Operation	Throws exception	Returns special value
+Insert	add()	offer()
+Remove	remove()	poll()
+Examine	element()	peek()
+
+For an empty queue:
+
+poll()
+
+returns null, whereas:
+
+remove()
+
+throws an exception.
+
+24. PriorityQueue
+
+PriorityQueue processes elements according to priority rather than simple insertion order.
+
+With natural ordering:
+
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+pq.offer(30);
+pq.offer(10);
+pq.offer(20);
+
+System.out.println(pq.poll());
+
+Output:
+
+10
+
+The smallest element has the highest priority under natural ordering.
+
+Important
+
+Do not assume that iterating over a PriorityQueue gives completely sorted output. The priority guarantee is about the head element and removal order, not ordinary iteration order.
+
+25. Deque
+
+Deque means:
+
+Double Ended Queue
+
+You can insert and remove from both ends.
+
+Front                    Rear
+  ↓                        ↓
+[10] [20] [30] [40]
+
+Methods include:
+
+addFirst()
+addLast()
+removeFirst()
+removeLast()
+peekFirst()
+peekLast()
+26. ArrayDeque
+
+ArrayDeque is a resizable-array implementation of Deque.
+
+Example:
+
+ArrayDeque<Integer> deque = new ArrayDeque<>();
+
+deque.addFirst(10);
+deque.addLast(20);
+deque.addFirst(5);
+
+System.out.println(deque);
+
+Output:
+
+[5, 10, 20]
+
+It can be used as both:
+
+Queue
+FIFO
+
+and
+
+Stack
+LIFO
+
+For modern Java code, ArrayDeque is generally preferred over the legacy Stack for stack behavior.
+
+27. Map Interface
+
+Now we come to one of the most important parts of the Collection Framework.
+
+Map stores data as:
+
+Key → Value
+
+Example:
+
+101 → Rahul
+102 → Amit
+103 → Sneha
+
+Here:
+
+101 = key
+Rahul = value
+Important
+
+Keys must be unique.
+
+Values can be duplicated.
+
+28. Why Map is not part of Collection?
+
+This is a very common interview question.
+
+Collection represents a group of individual elements:
+
+A
+B
+C
+
+Map represents key-value mappings:
+
+101 → A
+102 → B
+
+Therefore, Map has a different data model and does not extend Collection.
+
+29. HashMap
+
+HashMap is one of the most frequently used Java collections.
+
+Example:
+
+HashMap<Integer, String> students = new HashMap<>();
+
+students.put(101, "Rahul");
+students.put(102, "Amit");
+students.put(103, "Sneha");
+
+System.out.println(students);
+Important HashMap methods
+put()
+students.put(101, "Rahul");
+
+Adds or updates a mapping.
+
+If the key already exists:
+
+students.put(101, "Amit");
+
+the old value associated with 101 is replaced.
+
+get()
+students.get(101);
+
+Returns the value for the key.
+
+remove()
+students.remove(101);
+
+Removes the key-value mapping.
+
+containsKey()
+students.containsKey(101);
+
+Checks whether the key exists.
+
+containsValue()
+students.containsValue("Rahul");
+
+Checks whether a value exists.
+
+keySet()
+students.keySet();
+
+Returns the set of keys.
+
+values()
+students.values();
+
+Returns the collection of values.
+
+entrySet()
+
+Returns key-value entries.
+
+students.entrySet();
+
+This is commonly used for iteration.
+
+30. Iterating over HashMap
+HashMap<Integer, String> students = new HashMap<>();
+
+students.put(101, "Rahul");
+students.put(102, "Amit");
+students.put(103, "Sneha");
+
+for (Map.Entry<Integer, String> entry : students.entrySet()) {
+    System.out.println(entry.getKey() + " " + entry.getValue());
+}
+
+Possible output:
+
+101 Rahul
+102 Amit
+103 Sneha
+
+The order of HashMap iteration is not guaranteed.
+
+31. How HashMap works internally
+
+This is one of the most important Java interview topics.
+
+Suppose:
+
+map.put("A", 100);
+
+HashMap uses the key's hash information to determine a bucket.
+
+Conceptually:
+
+                 HashMap
+                    |
+              Hash table
+                    |
+       -------------------------
+       |   |   |   |   |   |   |
+       0   1   2   3   4   5   6
+               |
+            bucket
+               |
+             A → 100
+
+If multiple keys map to the same bucket, a collision occurs.
+
+Modern Java HashMap can use a linked structure and, under certain conditions, tree-based bins to improve collision handling.
+
+32. HashMap Collision
+
+A collision occurs when different keys map to the same bucket.
+
+Example conceptually:
+
+Key A → Bucket 3
+Key B → Bucket 3
+
+Then both mappings need to coexist in that bucket.
+
+Java uses equals() along with hash information to distinguish keys.
+
+33. HashMap Important Interview Points
+Does HashMap allow null?
+
+Yes.
+
+It permits:
+
+one null key
+multiple null values
+
+Example:
+
+HashMap<Integer, String> map = new HashMap<>();
+
+map.put(null, "A");
+map.put(1, null);
+map.put(2, null);
+34. LinkedHashMap
+
+LinkedHashMap extends HashMap behavior by maintaining a predictable iteration order, normally insertion order.
+
+Example:
+
+LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+
+map.put(3, "C");
+map.put(1, "A");
+map.put(2, "B");
+
+System.out.println(map);
+
+Output:
+
+{3=C, 1=A, 2=B}
+Uses
+
+Useful when you need:
+
+HashMap-like lookup
++
+predictable insertion order
+
+It can also be configured for access-order, which is useful for certain cache implementations.
+
+35. TreeMap
+
+TreeMap stores keys in sorted order.
+
+Example:
+
+TreeMap<Integer, String> map = new TreeMap<>();
+
+map.put(30, "C");
+map.put(10, "A");
+map.put(20, "B");
+
+System.out.println(map);
+
+Output:
+
+{10=A, 20=B, 30=C}
+Features
+Keys are sorted
+No duplicate keys
+Basic operations generally O(log n)
+Based on a self-balancing tree structure
+Does not allow null keys in natural ordering
+36. HashMap vs LinkedHashMap vs TreeMap
+Feature	HashMap	LinkedHashMap	TreeMap
+Order	No guarantee	Insertion/access order	Sorted by key
+Duplicate keys	No	No	No
+Null key	One	One	Generally no
+Average/basic performance	O(1)	O(1) average	O(log n)
+Main use	Fast lookup	Lookup + predictable order	Sorted keys
+Easy memory trick
+HashMap
+→ Fast lookup
+
+LinkedHashMap
+→ Fast lookup + insertion order
+
+TreeMap
+→ Sorted keys
+37. Hashtable
+
+Hashtable is a legacy map implementation.
+
+It is synchronized and does not permit:
+
+null key
+null value
+
+Example:
+
+Hashtable<Integer, String> table = new Hashtable<>();
+
+table.put(1, "A");
+table.put(2, "B");
+
+Modern applications generally prefer HashMap for ordinary non-concurrent use, or the java.util.concurrent collections for concurrent use cases.
+
+38. HashMap vs Hashtable
+HashMap	Hashtable
+Not synchronized	Synchronized
+Allows one null key	No null key
+Allows null values	No null values
+Modern/general use	Legacy
+Usually better performance in non-concurrent code	Synchronization overhead
+39. Iterator
+
+Iterator is used to traverse a collection.
+
+Example:
+
+ArrayList<String> names = new ArrayList<>();
+
+names.add("A");
+names.add("B");
+names.add("C");
+
+Iterator<String> iterator = names.iterator();
+
+while (iterator.hasNext()) {
+    System.out.println(iterator.next());
+}
+Important methods
+hasNext()
+next()
+remove()
+40. ListIterator
+
+ListIterator is specifically for lists.
+
+It can move:
+
+Forward →
+Backward ←
+
+Example:
+
+List<String> names = new ArrayList<>();
+
+names.add("A");
+names.add("B");
+names.add("C");
+
+ListIterator<String> itr = names.listIterator();
+
+while (itr.hasNext()) {
+    System.out.println(itr.next());
+}
+
+It also supports methods such as:
+
+hasPrevious()
+previous()
+add()
+set()
+remove()
+41. Iterator vs ListIterator
+Iterator	ListIterator
+Works with collections	Works with List
+Forward traversal	Forward + backward
+hasNext()	hasNext() + hasPrevious()
+Can remove	Can add, remove, set
+More general	More specialized
+42. Comparable
+
+Comparable is used to define the natural ordering of objects.
+
+Method:
+
+compareTo()
+
+Example:
+
+class Student implements Comparable<Student> {
+
+    int marks;
+
+    Student(int marks) {
+        this.marks = marks;
+    }
+
+    @Override
+    public int compareTo(Student s) {
+        return this.marks - s.marks;
+    }
+}
+
+Now Student objects can be sorted according to marks.
+
+43. Comparator
+
+Comparator is used when you want to define a separate/custom comparison strategy.
+
+Method:
+
+compare()
+
+Example:
+
+Comparator<Integer> descending =
+        (a, b) -> b - a;
+
+Then:
+
+List<Integer> numbers = new ArrayList<>();
+
+numbers.add(10);
+numbers.add(30);
+numbers.add(20);
+
+numbers.sort(descending);
+
+System.out.println(numbers);
+
+Output:
+
+[30, 20, 10]
+44. Comparable vs Comparator
+
+Very important interview question.
+
+Comparable	Comparator
+compareTo()	compare()
+Natural/default ordering	Custom ordering
+Implemented by the class being compared	Usually separate object/lambda
+Package java.lang	Package java.util
+Usually one natural ordering	Can define multiple strategies
+Simple example
+
+Student can naturally be sorted by:
+
+Roll number
+
+But sometimes you want:
+
+Marks
+Name
+Age
+
+For multiple sorting strategies, Comparator is useful.
+
+45. Collections Utility Class
+
+Don't confuse:
+
+Collection
+
+with:
+
+Collections
+Collection
+
+An interface.
+
+Collection<String> c;
+Collections
+
+A utility class containing static methods for collection operations.
+
+Example:
+
+Collections.sort(list);
+Collections.reverse(list);
+Collections.shuffle(list);
+Collections.max(list);
+Collections.min(list);
+46. Sorting a List
+ArrayList<Integer> numbers = new ArrayList<>();
+
+numbers.add(40);
+numbers.add(10);
+numbers.add(30);
+numbers.add(20);
+
+Collections.sort(numbers);
+
+System.out.println(numbers);
+
+Output:
+
+[10, 20, 30, 40]
+47. Generics in Collections
+
+Generics provide type safety.
+
+Without generics:
+
+ArrayList list = new ArrayList();
+
+list.add("Hello");
+list.add(10);
+
+Different types can be inserted.
+
+With generics:
+
+ArrayList<String> list = new ArrayList<>();
+
+list.add("Hello");
+
+Now:
+
+list.add(10);
+
+causes a compile-time error.
+
+Advantages
+Type safety
+No unnecessary casting
+Cleaner code
+Errors caught at compile time
+48. Wrapper Classes and Collections
+
+Collections store objects, not primitive types directly.
+
+So instead of:
+
+ArrayList<int>
+
+we use:
+
+ArrayList<Integer>
+
+Similarly:
+
+int     → Integer
+double  → Double
+char    → Character
+boolean → Boolean
+long    → Long
+float   → Float
+
+Java automatically performs autoboxing and unboxing.
+
+Example:
+
+ArrayList<Integer> numbers = new ArrayList<>();
+
+numbers.add(10);  // autoboxing
+
+Conceptually:
+
+int → Integer
+
+And:
+
+int x = numbers.get(0);
+
+Conceptually:
+
+Integer → int
+
+This is unboxing.
+
+49. Fail-Fast and Fail-Safe Iterators
+
+Another interview topic.
+
+Fail-fast
+
+If a collection is structurally modified while it is being iterated in an unsupported way, the iterator may throw:
+
+ConcurrentModificationException
+
+Example:
+
+List<Integer> list = new ArrayList<>();
+
+list.add(10);
+list.add(20);
+
+for (Integer n : list) {
+    if (n == 10) {
+        list.remove(n);
+    }
+}
+
+This kind of modification during iteration can cause ConcurrentModificationException.
+
+Use the iterator's own remove() when appropriate:
+
+Iterator<Integer> itr = list.iterator();
+
+while (itr.hasNext()) {
+    Integer n = itr.next();
+
+    if (n == 10) {
+        itr.remove();
+    }
+}
+Fail-safe
+
+The term "fail-safe" is commonly used informally for iterators over concurrent collections that can tolerate concurrent modification without the same fail-fast behavior.
+
+Examples include certain concurrent collection iterators such as:
+
+CopyOnWriteArrayList
+ConcurrentHashMap
+50. Synchronized vs Concurrent Collections
+
+This becomes important in multithreading.
+
+Synchronized collection
+
+Example:
+
+List<Integer> list =
+    Collections.synchronizedList(new ArrayList<>());
+
+Access is synchronized.
+
+Concurrent collection
+
+Java provides the java.util.concurrent package.
+
+Examples:
+
+ConcurrentHashMap
+CopyOnWriteArrayList
+BlockingQueue
+ConcurrentLinkedQueue
+
+These are designed specifically for concurrent programming and can provide better scalability than simply synchronizing an entire collection.
+
+51. Time Complexity — Important for Interviews
+Collection	get/search	add	remove
+ArrayList	O(1) by index / O(n) search	O(1) amortized at end	O(n) by index
+LinkedList	O(n)	O(1) at known end/node position	O(1) at known node position
+HashSet	O(1) average	O(1) average	O(1) average
+TreeSet	O(log n)	O(log n)	O(log n)
+HashMap	O(1) average	O(1) average	O(1) average
+TreeMap	O(log n)	O(log n)	O(log n)
+
+These are typical/average or structural complexities; actual performance can depend on implementation details and workload.
+
+52. Most Important Differences
+ArrayList vs LinkedList
+ArrayList
+→ Array
+→ Fast access
+
+LinkedList
+→ Nodes
+→ Efficient operations at known ends/nodes
+HashSet vs TreeSet
+HashSet
+→ Unique
+→ No guaranteed order
+→ Generally faster
+
+TreeSet
+→ Unique
+→ Sorted
+→ O(log n)
+HashMap vs TreeMap
+HashMap
+→ Key-value
+→ No guaranteed order
+→ Average O(1)
+
+TreeMap
+→ Key-value
+→ Sorted keys
+→ O(log n)
+HashMap vs Hashtable
+HashMap
+→ Modern
+→ Allows null
+→ Not synchronized
+
+Hashtable
+→ Legacy
+→ No null
+→ Synchronized
+53. Collection vs Collections
+
+This is frequently asked.
+
+Collection
+
+Interface:
+
+Collection<Integer> numbers;
+Collections
+
+Utility class:
+
+Collections.sort(numbers);
+
+Remember:
+
+Collection = interface
+Collections = utility class
+
+54. Collection vs Map
+Collection
+
+Stores individual elements:
+
+10
+20
+30
+Map
+
+Stores key-value pairs:
+
+1 → Rahul
+2 → Amit
+3 → Sneha
+55. Complete Decision Guide
+
+When you have a problem, think like this:
+
+Need duplicates + insertion order?
+
+Use:
+
+ArrayList
+Need frequent operations at the ends / deque behavior?
+
+Use:
+
+LinkedList
+
+or preferably:
+
+ArrayDeque
+
+depending on the use case.
+
+Need unique elements?
+
+Use:
+
+HashSet
+Need unique + insertion order?
+
+Use:
+
+LinkedHashSet
+Need unique + sorted?
+
+Use:
+
+TreeSet
+Need key-value + fast lookup?
+
+Use:
+
+HashMap
+Need key-value + insertion order?
+
+Use:
+
+LinkedHashMap
+Need key-value + sorted keys?
+
+Use:
+
+TreeMap
+Need priority-based processing?
+
+Use:
+
+PriorityQueue
+Need stack behavior?
+
+Prefer:
+
+ArrayDeque
+56. Most Important Interview Questions
+
+For your Java interview preparation, these are the topics I would prioritize:
+
+Basic
+What is Collection Framework?
+Why do we need Collection Framework?
+Difference between Collection and Collections?
+Explain Collection Framework hierarchy.
+Difference between Collection and Map.
+Why is Map not part of Collection?
+List
+What is List?
+ArrayList vs LinkedList?
+How does ArrayList work internally?
+What is LinkedList?
+ArrayList vs Vector?
+What is Stack?
+Why is ArrayDeque preferred over Stack in modern code?
+Set
+What is Set?
+How does HashSet work?
+What is hashing?
+What is collision?
+What is hashCode()?
+What is equals()?
+Why must equals() and hashCode() be consistent?
+HashSet vs LinkedHashSet vs TreeSet.
+Map
+What is Map?
+How does HashMap work internally?
+What is HashMap collision?
+HashMap vs Hashtable?
+HashMap vs LinkedHashMap?
+HashMap vs TreeMap?
+Why does HashMap allow null?
+What happens when duplicate keys are inserted?
+Traversal / Sorting
+What is Iterator?
+Iterator vs ListIterator?
+What is Comparable?
+What is Comparator?
+Comparable vs Comparator?
+What is Collections class?
+What is ConcurrentModificationException?
+Advanced
+Fail-fast vs concurrent collection iterators.
+Synchronized collections vs concurrent collections.
+ConcurrentHashMap.
+CopyOnWriteArrayList.
+BlockingQueue.
+Time complexity of common collections.
+Generics in collections.
+Autoboxing and unboxing in collections.
+⭐ Best Order to Study JCF
+
+For interviews, don't try to memorize everything at once. Study in this order:
+
+1. Collection Framework basics
+        ↓
+2. Iterable & Collection
+        ↓
+3. List
+        ↓
+4. ArrayList
+        ↓
+5. LinkedList
+        ↓
+6. Vector & Stack
+        ↓
+7. Set
+        ↓
+8. HashSet
+        ↓
+9. LinkedHashSet
+        ↓
+10. TreeSet
+        ↓
+11. Queue & Deque
+        ↓
+12. PriorityQueue
+        ↓
+13. Map
+        ↓
+14. HashMap ⭐
+        ↓
+15. LinkedHashMap
+        ↓
+16. TreeMap
+        ↓
+17. Hashtable
+        ↓
+18. Iterator & ListIterator
+        ↓
+19. Comparable & Comparator
+        ↓
+20. equals() & hashCode() ⭐
+        ↓
+21. Collections utility class
+        ↓
+22. Generics
+        ↓
+23. Concurrent collections
+        ↓
+24. Time complexity
+
+For interviews, give extra attention to ArrayList, LinkedList, HashSet, HashMap, TreeMap, equals(), hashCode(), Comparable, Comparator, Iterator, and collection time complexity.

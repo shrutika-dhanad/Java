@@ -7,6 +7,7 @@ public class First {
     public static void main(String[] args) {
         // Arrylist - it is used to implement the functionality of resizable-arrays. it
         // implements the list interface of the collection framework.
+
         // Maintains insertion order
         // Allows duplicates
         // Allows multiple null values

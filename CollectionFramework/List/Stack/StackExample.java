@@ -82,20 +82,22 @@ public class StackExample {
         System.out.println(num);
 
         num.pop();
-        System.out.println(num);  //it can remove the top most means last eleemnt in the stack 
+        System.out.println(num); // it can remove the top most means last eleemnt in the stack
 
+        System.out.println(num.search(50)); // if the element is present in the stack it return 1 and otherwise return
+                                            // -1.
+        System.out.println(num.empty());
 
-        System.out.println(num.search(50));  //if the element is present in the stack it return 1 and otherwise return -1.
-        System.out.println(num.empty());   
+        // num.removeAll(num);
+        System.out.println(num);
 
-         num.removeAll(num);
-         System.out.println(num);
+        // System.out.println(num.empty());
+        // System.out.println(num.search(0));
 
-         System.out.println(num.empty());
-         System.out.println(num.search(0));
-
-
-         System.out.println(num.toArray());
+        Object[] obj = num.toArray();
+        for (Object object : num) {
+            System.out.println("toArray method" + object);
+        }
     }
 
 }

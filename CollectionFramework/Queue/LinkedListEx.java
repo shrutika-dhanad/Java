@@ -3,9 +3,10 @@ import java.util.LinkedList;
 
 public class LinkedListEx {
     public static void main(String[] args) {
+        
         Queue<Integer> q = new LinkedList<>();
 
-        // normal queue mdhe insertion always rear se hoil and removela from the front
+        // normal queue mdhe insertion always rear se hoil and removal from the front
 
         // q.add(10);
         // System.out.println(q);

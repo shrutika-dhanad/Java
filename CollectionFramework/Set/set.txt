@@ -31,3 +31,250 @@ toArray(),
 contains()
 containsAll()- retyrns true  if the set containns all the elements of the specified collection.
 hashcode() - returns a hashcode values (address of the element in the set).
+
+
+hashset:=>
+    the HashSet class of  the jcf provides the functionalities of the hash table 
+
+    HashSet is one of the most important classes in the Java Collection Framework (JCF).
+     It is mainly used when you want to store unique elements and you do not care about their order.
+     HashSet is a class in Java that implements the Set interface and stores only unique elements.
+
+     Interview definition
+
+HashSet is a Set implementation that stores unique elements using a hash table internally and does not guarantee any particular iteration order.
+
+HashSet internally uses a HashMap to store its elements.
+
+
+in JAVA, HashSet is commenly used if we have to access elements randomly, it is because elements in a hash table is accessed using hash codes.
+tha hashcode of an element is a unique identify that helps to identify the element in a hash tables.
+hashset cannot contain duplicate elements. Hence, each hash set element has a unique hashcode.
+
+
+//****************************************************************
+
+hashset -> O(n)
+LinkedHashSet -> O(n)
+TreeSet      -> O(log n)
+
+
+HashSet in Java – Complete Guide for Interview
+1. What is HashSet?
+
+HashSet is a class in Java Collections Framework that:
+
+Stores unique elements only (no duplicates)
+Is backed internally by a HashMap
+Does not maintain any order (insertion order is not guaranteed)
+Allows one null value
+Is not thread-safe (not synchronized)
+java
+Set<String> set = new HashSet<>();
+2. How HashSet Works Internally (MOST IMPORTANT for interview)
+
+This is the #1 question asked in interviews: "How does HashSet work internally?"
+
+Internally, HashSet uses a HashMap object.
+When you do set.add("Apple"), internally it does:
+java
+  map.put("Apple", PRESENT); // PRESENT is a dummy static Object
+So every element you add becomes a key in the HashMap, and the value is a constant dummy object (PRESENT).
+Since HashMap keys are unique, this automatically gives HashSet its "no duplicates" property.
+java
+private transient HashMap<E,Object> map;
+private static final Object PRESENT = new Object();
+
+public boolean add(E e) {
+    return map.put(e, PRESENT) == null;
+}
+3. How Duplicates Are Detected — hashCode() and equals()
+
+This is the second most asked interview question.
+
+When you add an object to HashSet:
+
+Java calls hashCode() on the object to find the bucket (a slot in the internal array) where it should go.
+If another element already exists in that same bucket, Java calls equals() to check if the two objects are actually equal.
+If equals() returns true → it's a duplicate, so it's not added.
+If equals() returns false → both objects are stored (in the same bucket, as a linked list or tree).
+
+Golden rule: If you override equals(), you must also override hashCode(). Otherwise HashSet may store duplicate-looking objects because their hash codes differ.
+
+java
+class Student {
+    int id;
+    String name;
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+        Student s = (Student) o;
+        return id == s.id && name.equals(s.name);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
+    }
+}
+4. Important Properties (Quick Facts Table)
+Property	Detail
+Duplicates	Not allowed
+Null	Only 1 null allowed
+Order	No guaranteed order
+Backed by	HashMap
+Thread-safe	No
+Performance	O(1) average for add, remove, contains
+Implements	Set, Collection, Iterable
+5. Time Complexity
+Operation	Average Case	Worst Case
+add()	O(1)	O(n) — if many hash collisions
+remove()	O(1)	O(n)
+contains()	O(1)	O(n)
+
+Worst case happens when many objects have the same hashCode → they all fall in the same bucket → becomes a linked list (or tree if Java 8+ and bucket size > 8).
+
+6. Constructors
+java
+HashSet<Integer> s1 = new HashSet<>();              // default capacity 16, load factor 0.75
+HashSet<Integer> s2 = new HashSet<>(20);             // initial capacity 20
+HashSet<Integer> s3 = new HashSet<>(20, 0.5f);       // capacity + custom load factor
+HashSet<Integer> s4 = new HashSet<>(existingCollection); // copy constructor
+Initial Capacity: number of buckets (default 16)
+Load Factor: when to resize (default 0.75 → resizes when 75% full)
+7. Common Methods
+java
+Set<Integer> set = new HashSet<>();
+
+set.add(10);              // add element
+set.remove(10);           // remove element
+set.contains(10);         // check if present
+set.size();               // number of elements
+set.isEmpty();            // true/false
+set.clear();              // remove all
+for (int i : set) { }     // iterate (use iterator, order not fixed)
+8. HashSet vs Other Set Implementations (Very common interview question)
+Feature	HashSet	LinkedHashSet	TreeSet
+Order	No order	Insertion order	Sorted order
+Backed by	HashMap	LinkedHashMap	TreeMap (Red-Black tree)
+Null allowed	Yes (1)	Yes (1)	No
+Performance	O(1)	O(1)	O(log n)
+Use case	Fast lookup, order doesn't matter	Need order + fast lookup	Need sorted data
+9. HashSet vs ArrayList (Common comparison question)
+Feature	HashSet	ArrayList
+Duplicates	Not allowed	Allowed
+Order	Not guaranteed	Maintains insertion order (index-based)
+Access by index	No	Yes
+Search performance	O(1)	O(n)
+Backed by	HashMap	Dynamic array
+10. Why HashSet Doesn't Maintain Order
+Elements are placed into buckets based on hashCode() % numberOfBuckets.
+Since hash values can scatter elements anywhere in the internal array, the iteration order has nothing to do with insertion order.
+If you need order, use LinkedHashSet (insertion order) or TreeSet (sorted order).
+11. Fail-Fast Iterator
+HashSet's iterator is fail-fast.
+If the set is structurally modified (add/remove) while iterating (except through the iterator's own remove() method), it throws ConcurrentModificationException.
+java
+Set<Integer> set = new HashSet<>(Arrays.asList(1, 2, 3));
+for (Integer i : set) {
+    set.remove(i);  // ❌ throws ConcurrentModificationException
+}
+
+Correct way:
+
+java
+Iterator<Integer> it = set.iterator();
+while (it.hasNext()) {
+    int val = it.next();
+    if (val == 2) it.remove();  // ✅ safe
+}
+12. Load Factor and Resizing (Deep-dive question)
+Default capacity = 16, Load Factor = 0.75
+Threshold = capacity × load factor = 16 × 0.75 = 12
+When the 13th element is added, HashSet doubles its capacity (16 → 32) and rehashes all elements.
+This resizing is costly, so if you know approximate size in advance, set initial capacity to avoid multiple resizes.
+java
+// If you know you'll store ~1000 elements
+Set<Integer> set = new HashSet<>(1500); // avoids frequent resizing
+13. Real Interview Questions & Short Answers
+
+Q1: Can HashSet contain duplicate elements?
+No, it silently ignores duplicates (add() returns false for duplicates).
+
+Q2: Can HashSet contain null?
+Yes, only one null value.
+
+Q3: Is HashSet synchronized?
+No. For thread safety use Collections.synchronizedSet(new HashSet<>()) or CopyOnWriteArraySet.
+
+Q4: What happens if hashCode() is not overridden for custom objects?
+Default hashCode() (from Object class) is based on memory address, so two "logically equal" objects will have different hash codes and both get added — leading to unexpected duplicates.
+
+Q5: What is the difference between Set and List?
+Set → no duplicates, mostly no index access.
+List → allows duplicates, index-based access, maintains order.
+
+Q6: How is uniqueness maintained internally?
+Via hashCode() to find bucket + equals() to confirm actual equality within that bucket.
+
+14. Simple Example Putting It All Together
+java
+import java.util.HashSet;
+import java.util.Set;
+
+public class Demo {
+    public static void main(String[] args) {
+        Set<String> fruits = new HashSet<>();
+        
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Apple");  // duplicate, ignored
+        fruits.add(null);     // allowed once
+        
+        System.out.println(fruits.size());       // 3 (Apple, Banana, null)
+        System.out.println(fruits.contains("Apple")); // true
+        
+        fruits.remove("Banana");
+        System.out.println(fruits);  // order not guaranteed
+    }
+}
+🎯 Interview Tip
+
+The most important thing to remember and be ready to explain clearly is:
+
+"HashSet is internally backed by HashMap. Elements are stored as keys of the map with a dummy constant value. Uniqueness is checked using hashCode() (to locate the bucket) and equals() (to confirm if it's truly a duplicate)."
+
+If you can explain this one line confidently with the code, you'll cover 80% of what interviewers want to hear.
+
+Sample Fresher Interview Questions (Practice These)
+What is Java Collection Framework?
+Difference between Array and ArrayList?
+Difference between ArrayList and LinkedList?
+Difference between List, Set, and Map?
+What is the difference between HashMap and Hashtable? (basic — just thread safety + null)
+What is an Iterator? How do you use it?
+Can a HashMap have duplicate keys? Can it have duplicate values?
+Does HashSet maintain insertion order? Which one does?
+What is the difference between Comparable and Comparator? (simple explanation is enough)
+What is the use of equals() and hashCode()?
+What is the default capacity of ArrayList/HashMap? (10 for ArrayList, 16 for HashMap)
+How do you sort a list of integers/strings?
+What is the difference between Collection and Collections?
+⛔ Skip These for Now (Save for 1-2 years experience level)
+HashMap internal bucket/treeification logic
+ConcurrentHashMap internal locking mechanism
+Fail-fast vs fail-safe deep internals
+LRU Cache using LinkedHashMap
+Custom implementation of HashMap
+Stream API deep dive
+📌 Fresher Prep Strategy
+
+Focus on:
+
+Knowing the differences between classes (ArrayList vs LinkedList, HashMap vs Hashtable, List vs Set vs Map)
+Writing simple code — add, remove, iterate, sort
+Basic conceptual understanding of equals/hashCode and Comparable/Comparator
+
+You don't need to explain how HashMap resizes internally — just know what it is and when to use it.

@@ -145,3 +145,453 @@ Interview Definition
 
 PriorityQueue is a Queue implementation in Java that uses a heap to process elements according to priority.
  By default, it is a min-priority queue, where the smallest element has the highest priority. It allows duplicates but does not allow null elements.
+
+ PriorityQueue in Java Collection Framework
+1. What is PriorityQueue?
+
+PriorityQueue is a class in the Java Collection Framework that implements the Queue interface.
+
+It is used when elements need to be processed according to their priority, rather than simply following FIFO order.
+
+import java.util.PriorityQueue;
+Definition
+
+PriorityQueue is a queue in which elements are ordered according to their priority. By default, the smallest element has the highest priority.
+
+2. Hierarchy
+Collection
+    ↓
+   Queue
+    ↓
+PriorityQueue
+
+PriorityQueue is a class, while Queue is an interface.
+
+Example:
+
+Queue<Integer> pq = new PriorityQueue<>();
+
+or
+
+PriorityQueue<Integer> pq = new PriorityQueue<>();
+3. Basic Example
+import java.util.PriorityQueue;
+
+public class Main {
+    public static void main(String[] args) {
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        pq.add(30);
+        pq.add(10);
+        pq.add(20);
+
+        System.out.println(pq);
+    }
+}
+
+The important point is that the head of the queue is the smallest element.
+
+System.out.println(pq.peek());
+
+Output:
+
+10
+4. How PriorityQueue works
+
+By default, Java's PriorityQueue uses natural ordering.
+
+For numbers:
+
+Smallest number → Highest priority
+
+Example:
+
+Elements:
+30, 10, 20, 5
+
+Highest priority:
+5
+
+So:
+
+pq.peek();
+
+returns:
+
+5
+Important
+
+Do not assume that printing a PriorityQueue will display all elements in sorted order.
+
+System.out.println(pq);
+
+does not guarantee sorted output.
+
+Only the head element is guaranteed to have the highest priority.
+
+5. Important Methods
+add()
+
+Adds an element.
+
+pq.add(10);
+offer()
+
+Also adds an element.
+
+pq.offer(20);
+
+For PriorityQueue, add() and offer() are commonly used for insertion.
+
+peek()
+
+Returns the highest-priority element without removing it.
+
+System.out.println(pq.peek());
+
+Example:
+
+PriorityQueue:
+[10, 20, 30]
+
+peek() → 10
+
+Queue remains:
+[10, 20, 30]
+poll()
+
+Returns and removes the highest-priority element.
+
+System.out.println(pq.poll());
+
+Example:
+
+Before:
+[10, 20, 30]
+
+poll() → 10
+
+After:
+[20, 30]
+remove()
+
+Removes the head element.
+
+pq.remove();
+
+If the queue is empty, remove() throws an exception.
+
+isEmpty()
+
+Checks whether the queue is empty.
+
+if (pq.isEmpty()) {
+    System.out.println("Queue is empty");
+}
+size()
+
+Returns the number of elements.
+
+System.out.println(pq.size());
+6. peek() vs poll()
+
+This is an important interview question.
+
+peek()
+
+Only looks at the highest-priority element.
+
+pq.peek();
+poll()
+
+Looks at and removes the highest-priority element.
+
+pq.poll();
+
+Example:
+
+PriorityQueue:
+[10, 20, 30]
+
+peek() → 10
+Queue → [10, 20, 30]
+
+poll() → 10
+Queue → [20, 30]
+7. PriorityQueue Example
+import java.util.PriorityQueue;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        pq.add(40);
+        pq.add(10);
+        pq.add(30);
+        pq.add(20);
+
+        System.out.println("Highest Priority: " + pq.peek());
+
+        System.out.println("Removed: " + pq.poll());
+        System.out.println("Removed: " + pq.poll());
+        System.out.println("Removed: " + pq.poll());
+        System.out.println("Removed: " + pq.poll());
+    }
+}
+
+Output:
+
+Highest Priority: 10
+Removed: 10
+Removed: 20
+Removed: 30
+Removed: 40
+
+This demonstrates that the elements are processed according to their priority.
+
+8. PriorityQueue with Strings
+
+PriorityQueue can also store Strings.
+
+PriorityQueue<String> pq = new PriorityQueue<>();
+
+pq.add("Mango");
+pq.add("Apple");
+pq.add("Banana");
+
+System.out.println(pq.peek());
+
+Output:
+
+Apple
+
+Because Strings are compared according to their natural ordering.
+
+9. Max PriorityQueue
+
+By default:
+
+Smallest element = Highest priority
+
+If we want:
+
+Largest element = Highest priority
+
+we can use a Comparator.
+
+PriorityQueue<Integer> pq =
+        new PriorityQueue<>(Comparator.reverseOrder());
+
+Example:
+
+import java.util.PriorityQueue;
+import java.util.Comparator;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        PriorityQueue<Integer> pq =
+                new PriorityQueue<>(Comparator.reverseOrder());
+
+        pq.add(10);
+        pq.add(30);
+        pq.add(20);
+
+        System.out.println(pq.poll());
+    }
+}
+
+Output:
+
+30
+
+So:
+
+Min PriorityQueue
+Smallest → Highest priority
+
+Max PriorityQueue
+Largest → Highest priority
+10. PriorityQueue with Custom Objects
+
+We can also create a PriorityQueue for our own classes.
+
+For example, suppose students have marks.
+
+class Student {
+
+    String name;
+    int marks;
+
+    Student(String name, int marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+}
+
+We can define priority based on marks:
+
+PriorityQueue<Student> pq =
+    new PriorityQueue<>(
+        (s1, s2) -> s2.marks - s1.marks
+    );
+
+Now the student with the highest marks gets the highest priority.
+
+11. Internal Data Structure
+
+PriorityQueue is internally implemented using a heap.
+
+By default, Java uses a:
+
+Min-Heap
+
+Conceptually:
+
+        10
+       /  \
+     20    30
+    /  \
+   40   50
+
+The smallest element is at the root.
+
+Therefore:
+
+pq.peek()
+
+gives the smallest element.
+
+12. Time Complexity
+
+For a PriorityQueue:
+
+Operation	Complexity
+peek()	O(1)
+add()	O(log n)
+offer()	O(log n)
+poll()	O(log n)
+remove() head	O(log n)
+Search	O(n)
+
+The reason insertion and removal are generally O(log n) is because the heap may need to be rearranged.
+
+13. Important Characteristics
+1. Allows duplicates
+pq.add(10);
+pq.add(10);
+
+Duplicates are allowed.
+
+2. Does not allow null
+pq.add(null);
+
+This causes a NullPointerException.
+
+3. Not FIFO
+
+A normal Queue follows:
+
+FIFO
+
+But PriorityQueue follows:
+
+Priority
+
+Example:
+
+Inserted:
+30 → 10 → 20
+
+Removed:
+10 → 20 → 30
+4. Not thread-safe
+
+PriorityQueue is not synchronized.
+
+For concurrent priority-based processing, Java provides PriorityBlockingQueue.
+
+14. Queue vs PriorityQueue
+Queue	PriorityQueue
+Usually follows FIFO	Follows priority
+First inserted usually removed first	Highest-priority element removed first
+Example: 10, 20, 30 → 10 first	30, 10, 20 → 10 first
+General queue	Priority-based queue
+15. PriorityQueue vs ArrayDeque
+PriorityQueue	ArrayDeque
+Elements processed by priority	Elements processed from ends
+Internally uses heap	Internally uses resizable array
+peek() gives highest-priority element	peekFirst() gives first element
+Does not follow normal FIFO	Can behave as Queue or Stack
+Does not allow null	Does not allow null
+16. Real-World Examples
+
+PriorityQueue is useful when tasks have different priorities.
+
+Hospital
+Emergency patient → Highest priority
+Normal patient     → Lower priority
+CPU scheduling
+High-priority task
+       ↓
+Medium-priority task
+       ↓
+Low-priority task
+Dijkstra's Algorithm
+
+PriorityQueue is commonly used to process the vertex with the smallest current distance.
+
+Job Scheduling
+
+Jobs can be processed according to priority.
+
+17. Important Interview Questions
+Q1. What is PriorityQueue?
+
+Answer:
+
+PriorityQueue is a class in Java that implements the Queue interface and processes elements according to their priority. By default, it gives the smallest element the highest priority.
+
+Q2. What data structure is used internally?
+
+PriorityQueue is implemented using a heap, specifically a min-heap by default.
+
+Q3. Does PriorityQueue follow FIFO?
+
+No. It processes elements according to their priority.
+
+Q4. Does PriorityQueue allow duplicates?
+
+Yes, duplicates are allowed.
+
+Q5. Does PriorityQueue allow null?
+
+No, null elements are not allowed.
+
+Q6. What is the time complexity of peek()?
+
+O(1)
+
+Q7. What is the time complexity of poll()?
+
+O(log n)
+
+Q8. How do you create a Max PriorityQueue?
+PriorityQueue<Integer> pq =
+        new PriorityQueue<>(Comparator.reverseOrder());
+⭐ Interview Definition
+
+PriorityQueue is a Queue implementation in Java that uses a heap to process elements according to priority. By default, it is a min-priority queue, where the smallest element has the highest priority. It allows duplicates but does not allow null elements.
+
+Easy memory trick
+PriorityQueue
+     ↓
+Priority decides who comes out first
+     ↓
+Default → Smallest element first
+     ↓
+Internally → Heap
