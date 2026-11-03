@@ -1,4 +1,3 @@
-package CoreJava;
  //methods-mehtods is an entity  whch enables us to reuse the block of code.
 // why?-> = using methid our code became a modular. 
     //   easy to understand,

@@ -1,4 +1,3 @@
-package CoreJava;
 public class MethodsPractice {
   static void solution(int num) {
 

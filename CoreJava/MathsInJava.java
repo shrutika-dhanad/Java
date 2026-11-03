@@ -1,4 +1,3 @@
-package CoreJava;
 // // public class MathsInJava {
 
 // //qs . print digits

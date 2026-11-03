@@ -1,4 +1,3 @@
-package CoreJava;
 public class StringsMethods {
         public static void main(String[] args) {
                 // ...........Strings Common method.............

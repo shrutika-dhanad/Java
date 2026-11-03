@@ -1,4 +1,4 @@
-package CoreJava;
+
 public class BasicRivision{
     static int countVovwels(String vowels){
  int count=0;

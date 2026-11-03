@@ -1,4 +1,3 @@
-package CoreJava;
 public class StringPractice{
     static void printName(String str){
         for(int i=0; i<str.length(); i++){

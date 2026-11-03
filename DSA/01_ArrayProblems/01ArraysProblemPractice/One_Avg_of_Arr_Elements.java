@@ -1,3 +1,4 @@
+
 //O(n) - time complexity and O(1) - is space complexity.
 
 public class One_Avg_of_Arr_Elements {

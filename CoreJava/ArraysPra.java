@@ -1,4 +1,4 @@
-package CoreJava;
+
 public class ArraysPra {
     public static void main(String[] args) {
 
